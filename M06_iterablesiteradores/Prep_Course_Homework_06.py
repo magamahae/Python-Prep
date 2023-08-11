@@ -7,7 +7,12 @@
 
 # In[1]:
 
-
+lista_v=[]
+li=-1
+lo=-15
+while lo < 0:
+    lista_v.append(lo)
+    lo+=1
 
 
 
@@ -16,14 +21,20 @@
 # In[3]:
 
 
-
+var=0
+while var < len(lista_v):
+    if (lista_v[var]%2==0):
+        print(lista_v[var])
+    var+=1 
 
 
 # 3) Resolver el punto anterior sin utilizar un ciclo while
 
 # In[4]:
 
-
+for elemento in lista_v:
+    if(elemento%2==0):
+        print (elemento)
 
 
 
@@ -31,21 +42,30 @@
 
 # In[7]:
 
-
+for elemento in lista_v[:3]:
+    print(elemento)
 
 
 # 5) Utilizar la función **enumerate** para obtener dentro del iterable, tambien el índice al que corresponde el elemento
 
 # In[9]:
 
-
+for i,j in enumerate(lista_v[:3]):
+    print(elemento)
 
 
 # 6) Dada la siguiente lista de números enteros entre 1 y 20, crear un ciclo donde se completen los valores faltantes: lista = [1,2,5,7,8,10,13,14,15,17,20]
 
 # In[10]:
 
+i=0
+lista = [1,2,5,7,8,10,13,14,15,17,20]
+while i<20:
+    if not i in lista:
+        lista.insert(i-1,i)
+    i+=1
 
+print(lista
 
 
 
@@ -64,7 +84,15 @@ n = 1
 
 # In[23]:
 
+fibo = [0, 1] 
 
+n = 2  
+
+while n < 30:  
+    fibo.append(fibo[n - 1] + fibo[n - 2]) 
+    n += 1  
+
+print(fibo) 
 
 
 
@@ -73,7 +101,8 @@ n = 1
 # In[24]:
 
 
-
+a=sum(fibo)
+print(a)
 
 # 9) La proporción aurea se expresa con una proporción matemática que nace el número irracional Phi= 1,618… que los griegos llamaron número áureo. El cuál se puede aproximar con la sucesión de Fibonacci. Con la lista del ejercicio anterior, imprimir el cociente de los últimos 5 pares de dos números contiguos:<br>
 # Donde i es la cantidad total de elementos<br>
@@ -86,7 +115,12 @@ n = 1
 
 # In[38]:
 
+primeros = 15  
+n = primeros - 5  
 
+while n < primeros:  
+    print(fibo[n] / fibo[n - 1]) 
+    n += 1
 
 
 # 10) A partir de la variable cadena ya dada, mostrar en qué posiciones aparece la letra "n"<br>
@@ -95,14 +129,20 @@ n = 1
 # In[39]:
 
 
-
+cadena = 'Hola Mundo. Esto es una practica del lenguaje de programación Python'
+for i, j in enumerate(cadena):
+    if j =='n':
+       print ('n esta en la posicion' + str(i)) 
 
 
 # 11) Crear un diccionario e imprimir sus claves utilizando un iterador
 
 # In[40]:
 
+dicc={'clave1':'perro', 'clave2':'gato', 'clave3':'conejo'}
 
+for i in dicc:
+    print(i)
 
 
 
@@ -110,7 +150,16 @@ n = 1
 
 # In[41]:
 
+cadena = 'Hola Mundo. Esto es una practica del lenguaje de programación Python'
+cadena2=list(cadena)
+for i in cadena2:
+    print (i)
 
+
+    ####otra forma
+    recorre = iter(cadena)  
+    for i in range(0, len(cadena)):  
+        print(next(recorre))
 
 
 
@@ -124,7 +173,11 @@ n = 1
 
 # In[48]:
 
-
+lista1=[1,2,3,4,5]
+lista2=[6,7,8,9]
+lista3=zip(lista1,lista2)
+lista3=list(lista3)
+print(lista3)
 
 
 
@@ -134,7 +187,13 @@ n = 1
 # In[49]:
 
 
+lis = [18,21,29,32,35,42,56,60,63,71,84,90,91,100]
+nueva=[]
+for elemento in lis:
+    if(elemento %7==0):
+        nueva.append(elemento)
 
+print(nueva)
 
 
 # 15) A partir de la lista de a continuación, contar la cantidad total de elementos que contiene, teniendo en cuenta que un elemento de la lista podría ser otra lista:<br>
@@ -142,7 +201,15 @@ n = 1
 
 # In[56]:
 
+lis = [[1,2,3,4],'rojo','verde',[True,False,False],['uno','dos','tres']]
+contar=0
+for elemento in lis:
+    if type(elemento) ==list:
+        contar = contar+len(elemento)
+    else:
+        contar+=1
 
+print(contar)
 
 
 # In[51]:
@@ -162,4 +229,7 @@ n = 1
 # In[58]:
 
 
-
+lis = [[1,2,3,4],'rojo','verde',[True,False,False],['uno','dos','tres']]
+for indice, elemento in enumerate(lis):
+    if not type(elemento)==list:
+        lis[indice]=[elemento]
